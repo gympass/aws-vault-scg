@@ -34,7 +34,7 @@ brews:
       name: homebrew-tools
       branch: main
       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
-    url_template: "https://github.com/Gympass/aws-vault-scg/releases/{{ .Tag }}/{{ .ArtifactName }}"
+    url_template: "https://github.com/Gympass/aws-vault-scg/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
     commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
     folder: formula
 
