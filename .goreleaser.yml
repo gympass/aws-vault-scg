@@ -8,7 +8,7 @@ builds:
       - linux
       - darwin
     main: ./main.go
-    binary: acg
+    binary: aws-vault-scg
 archives:
   - replacements:
       darwin: Darwin
@@ -27,7 +27,7 @@ changelog:
       - '^test:'
 brews:
   -
-    name: acg
+    name: aws-vault-scg
     goarm: "6"
     tap:
       owner: Gympass
