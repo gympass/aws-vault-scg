@@ -16,7 +16,7 @@ Automatically generate your profiles overwriting the file `~/.aws/config` or pri
 
 ```shell
 brew tap Gympass/homebrew-tools
-brew install acg
+brew install aws-vault-scg
 ```
 
 ### **Using go install**
