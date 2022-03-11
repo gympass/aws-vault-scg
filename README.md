@@ -1,7 +1,7 @@
 # AWS Vault - SSO Config Generator
 
 [![Downloads](https://img.shields.io/github/downloads/Gympass/aws-vault-scg/total.svg)](https://github.com/Gympass/aws-vault-scg/releases)
-[![Continuous Integration](https://github.com/Gympass/aws-vault-scg/workflows/Continuous%20Integration/badge.svg)](https://github.com/Gympass/aws-vault-scg/actions)
+![Continuous Integration](https://github.com/Gympass/aws-vault-scg/actions/workflows/release.yaml/badge.svg)
 
 Automatically generate your profiles overwriting the file `~/.aws/config` or print on stdout based on your AWS SSO accounts and roles to use with [99designs/aws-vault](https://github.com/99designs/aws-vault)
 
