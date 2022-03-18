@@ -1,4 +1,4 @@
-# AWS Vault - SSO Config Generator
+# AWS Vault - SSO Config by Gympass
 
 [![Downloads](https://img.shields.io/github/downloads/Gympass/aws-vault-scg/total.svg)](https://github.com/Gympass/aws-vault-scg/releases)
 ![Continuous Integration](https://github.com/Gympass/aws-vault-scg/actions/workflows/release.yaml/badge.svg)
