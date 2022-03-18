@@ -22,7 +22,7 @@ Automatically generate your profiles overwriting the file `~/.aws/config` or pri
 - ### **One-line installer _[latest release](https://github.com/Gympass/aws-vault-scg/releases/latest)_ script** _(recommended for Linux)_
   
   ```shell
-  curl -fsSL https://github.com/Gympass/aws-vault-scg/raw/main/script/install.sh
+  curl -fsSL https://github.com/Gympass/aws-vault-scg/raw/main/script/install.sh | sudo bash
   ```
 
 - ### **Using go install** _(for experienced users)_
