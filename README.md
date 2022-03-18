@@ -12,20 +12,24 @@ Automatically generate your profiles overwriting the file `~/.aws/config` or pri
 
 ## **Installing**
 
-### **Using [Homebrew](https://brew.sh/)** _(Linux and MacOS)_
+- ###  **Using [Homebrew](https://brew.sh/)** _(recommended for MacOS)_
 
-```shell
-brew tap Gympass/homebrew-tools
-brew install aws-vault-scg
-```
+  ```shell
+  brew tap Gympass/homebrew-tools
+  brew install aws-vault-scg
+  ```
 
-### **Using go install**
+- ### **One-line installer _[latest release](https://github.com/Gympass/aws-vault-scg/releases/latest)_ script** _(recommended for Linux)_
+  
+  ```shell
+  curl -fsSL https://github.com/Gympass/aws-vault-scg/raw/main/script/install.sh
+  ```
 
-```shell
-go install github.com/Gympass/aws-vault-scg
-```
+- ### **Using go install** _(for experienced users)_
 
-### **Or by downloading the** _[latest release](https://github.com/Gympass/aws-vault-scg/releases/latest)_
+  ```shell
+  go install github.com/Gympass/aws-vault-scg
+  ```
 
 ## Usage
 
