@@ -171,12 +171,22 @@ func newOIDCToken(ctx context.Context, startUrl, region string) (*ssooidc.Create
 }
 
 func ListAccounts(ctx context.Context, client *sso.Client, token *string) []types.AccountInfo {
-	acc, err := client.ListAccounts(ctx, &sso.ListAccountsInput{AccessToken: token})
-	if err != nil {
-		log.Fatalf("unable to list accounts, %v", err)
+	var (
+		nextToken *string
+		accounts  []types.AccountInfo
+	)
+	for {
+		acc, err := client.ListAccounts(ctx, &sso.ListAccountsInput{AccessToken: token, NextToken: nextToken, MaxResults: aws.Int32(50)})
+		if err != nil {
+			log.Fatalf("unable to list accounts, %v", err)
+		}
+		accounts = append(accounts, acc.AccountList...)
+		nextToken = acc.NextToken
+		if nextToken == nil {
+			break
+		}
 	}
-
-	return acc.AccountList
+	return accounts
 }
 
 func GetRolesByAccount(ctx context.Context, client *sso.Client, account types.AccountInfo, token *string) []types.RoleInfo {
