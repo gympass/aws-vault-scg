@@ -4,6 +4,11 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"log"
+	"os"
+	"strings"
+	"time"
+
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/sso"
@@ -11,10 +16,6 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/ssooidc"
 	ssoOidcTypes "github.com/aws/aws-sdk-go-v2/service/ssooidc/types"
 	"github.com/skratchdot/open-golang/open"
-	"log"
-	"os"
-	"strings"
-	"time"
 )
 
 func GenerateConfig(ssoURL, region string, overwrite bool) error {
@@ -40,8 +41,8 @@ func GenerateConfig(ssoURL, region string, overwrite bool) error {
 		}
 		configPath := homeDir + "/.aws/config"
 		err = os.Remove(configPath)
-		if err != nil {
-			fmt.Println("File not found. Continue...", err)
+		if err != nil && !os.IsNotExist(err) {
+			return err
 		}
 		for _, acc := range accounts {
 			roles := GetRolesByAccount(ctx, client, acc, token.AccessToken)
