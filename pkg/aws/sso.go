@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"strings"
 	"time"
 
@@ -39,7 +40,7 @@ func GenerateConfig(ssoURL, region string, overwrite bool) error {
 		if err != nil {
 			return err
 		}
-		configPath := homeDir + "/.aws/config"
+		configPath := filepath.Join(homeDir, ".aws", "config")
 		err = os.Remove(configPath)
 		if err != nil && !os.IsNotExist(err) {
 			return err

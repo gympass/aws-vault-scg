@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 
 	"github.com/Gympass/aws-vault-scg/pkg/aws"
 	"github.com/urfave/cli/v2"
@@ -34,8 +35,9 @@ var Generate = &cli.Command{
 		}
 
 		configDir := configDirName()
+		configFile := filepath.Join(configDir, "config")
 
-		if !fileExists(configDir + "/config") {
+		if !fileExists(configFile) {
 			// no config file, make sure path exists
 			createPath(configDir)
 			generateConfig(ssoURL, region)
@@ -64,7 +66,7 @@ func configDirName() string {
 	if err != nil {
 		log.Fatalf("Error identifying the home dir: %v", err)
 	}
-	return homeDir + "/.aws"
+	return filepath.Join(homeDir, ".aws")
 }
 
 func fileExists(fileName string) bool {
