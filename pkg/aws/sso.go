@@ -178,7 +178,7 @@ func ListAccounts(ctx context.Context, client *sso.Client, token *string) []type
 		accounts  []types.AccountInfo
 	)
 	for {
-		acc, err := client.ListAccounts(ctx, &sso.ListAccountsInput{AccessToken: token, NextToken: nextToken, MaxResults: aws.Int32(50)})
+		acc, err := client.ListAccounts(ctx, &sso.ListAccountsInput{AccessToken: token, NextToken: nextToken, MaxResults: aws.Int32(200)})
 		if err != nil {
 			log.Fatalf("unable to list accounts, %v", err)
 		}
